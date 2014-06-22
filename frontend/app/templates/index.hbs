@@ -1,0 +1,11 @@
+<div class="page-header">
+	<h1>Multiple External Providers example</h1>
+</div>
+{{#unless session.isAuthenticated}}
+<div class="alert alert-info">
+	<i class="fa fa-refresh fa-spin"></i>
+	You can {{#link-to 'login' class="alert-link"}}login{{/link-to}} with your Facebook account
+</div>
+{{/unless}}
+<br>
+<button {{action 'authTest'}}>Do Auth Test</button>

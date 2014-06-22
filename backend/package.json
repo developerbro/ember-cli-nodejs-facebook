@@ -1,0 +1,18 @@
+{
+	"name"         : "backend",
+	"description"  : "api for fb auth example",
+	"main"         : "server.js",
+	"dependencies" : {
+		"express"                 : "latest",
+		"mongoose"                : "latest",
+		"body-parser"             : "latest",
+		"glob"                    : "latest",
+		"passport-oauth"          : "latest",
+		"passport"                : "latest",
+		"passport-facebook-token" : "latest",
+        "passport-ember-auth"     : "git://github.com/inerd89/passport-ember-auth.git",
+		"facebook-node-sdk"       : "latest",
+		"q"                       : "latest",
+		"request"                 : "latest"
+	}
+}

@@ -1,0 +1,11 @@
+<div class="page-header">
+	<h1>Protected Page</h1>
+</div>
+<div class="alert alert-warning">
+	This is a protected page only visible to authenticated users!<br>
+	<button {{action 'authTest'}}>Do Auth Test</button><br>
+	auth token - {{session.authToken}}<br>
+	user id - {{session.userID}}<br>
+	user name - {{session.username}}<br>
+	email - {{session.email}}<br>
+</div>
