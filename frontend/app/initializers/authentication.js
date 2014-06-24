@@ -19,6 +19,7 @@ export default {
 			Ember.Logger.debug('Session authentication failed!');
 		});
 		session.on('sessionInvalidationSucceeded', function() {
+			console.log('Logging out...');
 			applicationRoute.transitionTo('index');
 		});
 		session.on('sessionInvalidationFailed', function() {

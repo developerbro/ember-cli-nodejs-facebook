@@ -4,6 +4,7 @@
 <div class="alert alert-warning">
 	This is a protected page only visible to authenticated users!<br>
 	<button {{action 'authTest'}}>Do Auth Test</button><br>
+	access token - {{session.accessToken}}<br>
 	auth token - {{session.authToken}}<br>
 	user id - {{session.userID}}<br>
 	user name - {{session.username}}<br>
