@@ -4,6 +4,7 @@ import CustomAuthorizer from 'frontend/objects/custom-authorizer';
 export default {
     name       : 'authentication',
     initialize : function(container, application) {
+		var self = this;
 		FB.init({appId: '1488191331398149'});
 		container.register('authorizer:custom', CustomAuthorizer);
 		container.register('authenticator:facebook', FacebookAuthenticator);
@@ -19,7 +20,6 @@ export default {
 			Ember.Logger.debug('Session authentication failed!');
 		});
 		session.on('sessionInvalidationSucceeded', function() {
-			console.log('Logging out...');
 			applicationRoute.transitionTo('index');
 		});
 		session.on('sessionInvalidationFailed', function() {

@@ -5,7 +5,6 @@
 	"dependencies" : {
 		"express"                 : "latest",
 		"mongoose"                : "latest",
-		"mongoose-random"         : "latest",
 		"body-parser"             : "latest",
 		"glob"                    : "latest",
 		"passport-oauth"          : "latest",

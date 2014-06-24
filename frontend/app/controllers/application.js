@@ -1,5 +1,10 @@
 export default Ember.ObjectController.extend({
-	pathObserver: function() {
-		console.log(this.get('currentPath'));
-	}.observes('currentPath')
+	actions: {
+		logout: function() {
+			var self = this;
+			Em.$.post('api/v1/auth/disconnect', {}).done(function(response) {
+				self.get('session').invalidate();
+			});
+		}
+	}
 });

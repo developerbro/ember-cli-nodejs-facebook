@@ -6,8 +6,14 @@ var User    = require('../models/user');
 module.exports = function(app) {
 	var router = express.Router();
 	router.post('/auth/disconnect', function(req, res) {
-		var authToken = req.body.auth_token;
-		console.log('auth token '+authToken);
+		var userID = req.headers['api-userid'];
+		User.findOne({facebookUserId: userID}, function(err, user) {
+			if (err) res.send(404, 'not found');
+			user.authToken = '';
+			user.save(function(err) {
+				res.send('logged out');
+			});
+		});
 	});
 	router.post('/auth/connect', function(req, res) {
 		var accessToken = req.body.access_token;
