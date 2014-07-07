@@ -1,12 +1,16 @@
 <div class="page-header">
 	<h1>Login</h1>
 	<div class="alert alert-info">
-		<form {{action 'login' on="submit"}}>
-			{{input type="email" value=email placeholder="user email"}}<br>
-			{{input type="password" value=password placeholder="password"}}<br>
-			{{input type="submit" value="Login" class="btn"}}
-		</form>
+		<div class="row">
+			<div class="col-md-4">
+				<form {{action 'login' on="submit"}} class="form-signin">
+					{{input type="email" value=email placeholder="email..." class="form-control"}}
+					{{input type="password" value=password placeholder="password..." class="form-control bottom"}}
+					{{input type="submit" value="Login" class="btn btn-lg btn-primary btn-block"}}
+				</form>
+			</div>
+		</div>
 		<br>Or<br><br>
-		<button {{action 'authenticateWithFacebook'}} class="btn btn-facebook"><i class="fa fa-facebook"></i> | Login with Facebook</button>
+		<button {{action 'authenticateWithFacebook'}} class="btn btn-lg btn-primary"><i class="fa fa-facebook"></i> | Login with Facebook</button>
 	</div>
 </div>
