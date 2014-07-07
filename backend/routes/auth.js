@@ -1,7 +1,8 @@
-var crypto  = require('crypto');
-var express = require('express');
-var request = require('request');
-var User    = require('../models/user');
+var crypto   = require('crypto');
+var express  = require('express');
+var request  = require('request');
+var User     = require('../models/user');
+var passport = require('passport');
 
 module.exports = function(app) {
 	var router = express.Router();
@@ -54,8 +55,8 @@ module.exports = function(app) {
 	router.post('/auth/login', function(req, res) {
 		var email = req.body.email;
 		var password = req.body.password;
-		User.findOne({email: email}, function(err, user) {
-			if (err) res.send(401, 'error');
+		User.findOne({email: email, password: password}, function(err, user) {
+			if (err) res.send(404, 'error');
 			if (!user) {
 				res.send(404, 'No such user');
 			} else {
@@ -67,6 +68,24 @@ module.exports = function(app) {
 			}
 		});
 	});
+	router.route('/auth/password')
+		.post(passport.authenticate('EmberAuth', {session: false}), 
+				function(req, res) {
+					var password = req.body.password	
+					var userId   = req.headers['api-userid'];
+					User.findOne({facebookUserId: userId}, function(err, user) {
+						if (err) res.send(401, 'error');
+						if (!user) {
+							res.send(401, 'No such user');
+						} else {
+							user.password = password;
+						}
+						user.save(function(err) {
+							if (err) res.send(404, 'error');
+							res.send('changed');
+						});
+					});
+				});
 
 	app.use('/api/v1', router);
 };

@@ -41,5 +41,16 @@ var fontawesomeTree = pickFiles('vendor/font-awesome/fonts', {
     files   : ['**/*'],
     destDir : '/fonts'
 });
+// alertify 
+app.import('vendor/alertify.js/themes/alertify.core.css');
+app.import('vendor/alertify.js/themes/alertify.default.css');
+app.import('vendor/alertify.js/themes/alertify.bootstrap.css');
+// ember-notify
+app.import('vendor/ember-notify/dist/named-amd/main.js', {
+	exports: {
+		'ember-notify' : ['default']
+	}
+});
+app.import('vendor/ember-notify/dist/ember-notify.css')
 
 module.exports = mergeTrees([app.toTree(), bootstrapTree, fontawesomeTree]);
