@@ -52,5 +52,7 @@ app.import('vendor/ember-notify/dist/named-amd/main.js', {
 	}
 });
 app.import('vendor/ember-notify/dist/ember-notify.css')
+// MD5
+app.import('vendor/js-md5/js/md5.min.js');
 
 module.exports = mergeTrees([app.toTree(), bootstrapTree, fontawesomeTree]);

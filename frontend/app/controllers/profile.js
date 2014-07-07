@@ -12,6 +12,7 @@ export default Ember.ObjectController.extend({
 				}).fail(function(res) {
 					Notify.alert('Cannot change password');
 				});
+				this.setProperties({password:'', passwordRepeat:''});
 			} else {
 				this.setProperties({password:'', passwordRepeat:''});
 				Notify.warning('please enter same password!');

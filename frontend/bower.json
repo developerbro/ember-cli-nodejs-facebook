@@ -17,6 +17,7 @@
 	"bootstrap": "latest",
 	"font-awesome": "latest",
 	"alertify.js": "latest",
-	"ember-notify": "https://github.com/aexmachina/ember-notify.git"
+	"ember-notify": "https://github.com/aexmachina/ember-notify.git",
+	"js-md5": "latest"
   }
 }

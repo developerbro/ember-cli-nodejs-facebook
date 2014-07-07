@@ -3,6 +3,9 @@
 </div>
 <div class="row">
 	<div class="col-md-4">
+		<a href="http://www.gravatar.com" target="_blank" title="Change avatar">
+			{{gravatar-image email=session.email size=200 style="img-thumbnail"}}
+		</a><br>
 		<form {{action 'changePassword' on="submit"}} class="form-signin">
 			{{input type="password" value=password placeholder="password..." class="form-control"}}
 			{{input type="password" value=passwordRepeat placeholder="password repeat..." class="form-control bottom"}}

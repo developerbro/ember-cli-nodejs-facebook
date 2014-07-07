@@ -9,6 +9,11 @@
 			{{#link-to 'protected' tagName='li'}}
 				<a style="cursor: pointer">Protected Page</a>
 			{{/link-to}}
+			{{#if session.isAuthenticated}}
+			{{#link-to 'profile' tagName='li'}}
+				<a style="cursor: pointer">Profile</a>
+			{{/link-to}}
+			{{/if}}
 		</ul>
 		{{#if session.isAuthenticated}}
 			<a {{ action 'logout' }} class="btn btn-danger navbar-btn navbar-right">Logout</a>
