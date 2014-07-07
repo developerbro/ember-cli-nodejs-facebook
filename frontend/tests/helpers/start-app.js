@@ -2,6 +2,7 @@
 
 var Application = require('frontend/app')['default'];
 var Router = require('frontend/router')['default'];
+import Ember from 'ember';
 
 export default function startApp(attrs) {
   var App;

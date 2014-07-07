@@ -39,7 +39,7 @@ module.exports = function(app) {
 						user.facebookUserId = u.facebookUserId;
 						user.username       = u.username;
 						user.email          = u.email;
-						user.authToken      = crypto.randomBytes(20).toString('hex')
+						user.authToken      = crypto.randomBytes(20).toString('hex');
 					}
 					user.save(function(err) {
 						if (err) res.send(401, 'error');
@@ -51,5 +51,22 @@ module.exports = function(app) {
 			}
 		});
 	});
+	router.post('/auth/login', function(req, res) {
+		var email = req.body.email;
+		var password = req.body.password;
+		User.findOne({email: email}, function(err, user) {
+			if (err) res.send(401, 'error');
+			if (!user) {
+				res.send(404, 'No such user');
+			} else {
+				user.authToken = crypto.randomBytes(20).toString('hex');
+				user.save(function(err) {
+					if (err) res.send(401, 'error');
+					res.json(200, {user: user});
+				});
+			}
+		});
+	});
+
 	app.use('/api/v1', router);
 };
